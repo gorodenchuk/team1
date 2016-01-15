@@ -7,18 +7,18 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-public class AlbumMapper {
+public class SongsMapper {
 
-    public static List<Album> albumList;
+    public static List<Song> songsList;
 
     public static List parser(String response) {
         ObjectMapper mapper = new ObjectMapper();
         try {
-            albumList = mapper.readValue(new File(response), new TypeReference<List<Album>>() {
+            songsList = mapper.readValue(new File(response), new TypeReference<List<Song>>() {
             });
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        return albumList;
+        return songsList;
     }
 }
