@@ -22,5 +22,17 @@ public final class Song implements Comparable<Song> {
         return "Track [song = " + song + ", time = " + time + ", artist = " + artist + "]\n";
     }
 
-  
+    public int compareTo(Song o) {
+        int diffSong = this.song.compareTo(o.song);
+        if (diffSong == 0) {
+            int diffArtist = this.artist.compareTo(o.artist);
+            if (diffArtist == 0) {
+                int diffTime = this.time.compareTo(o.time);
+                return diffTime;
+            } else
+                return diffArtist;
+        } else {
+            return diffSong;
+        }
+    }
 }
